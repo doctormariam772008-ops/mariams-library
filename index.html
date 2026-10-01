@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariam's Library</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f7ff;
+      color: #242235;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e9e6f2;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #6c4cff;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #55516b;
+      font-weight: 600;
+    }
+
+    .login {
+      background: #6c4cff;
+      color: white;
+      padding: 11px 20px;
+      border-radius: 12px;
+    }
+
+    .hero {
+      min-height: 600px;
+      padding: 100px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ece8ff;
+      color: #6c4cff;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #6c4cff;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.7;
+      color: #696579;
+      max-width: 560px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .primary,
+    .secondary {
+      padding: 15px 24px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .primary {
+      background: #6c4cff;
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: #6c4cff;
+      border: 1px solid #ddd8f0;
+    }
+
+    .hero-card {
+      width: 360px;
+      min-height: 390px;
+      background: white;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 20px 60px rgba(80, 60, 150, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .book {
+      height: 190px;
+      border-radius: 20px;
+      background: #eeeaff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .hero-card h3 {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .hero-card p {
+      color: #777286;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 50px 7%;
+      background: white;
+      border-top: 1px solid #eeeaf5;
+      border-bottom: 1px solid #eeeaf5;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 32px;
+      color: #6c4cff;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: #777286;
+    }
+
+    .features {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #777286;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #eeeaf5;
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #777286;
+      line-height: 1.7;
+    }
+
+    footer {
+      background: #242235;
+      color: white;
+      padding: 35px 7%;
+      text-align: center;
+    }
+
+    footer p {
+      color: #bbb7c8;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 800px) {
+      nav a:not(.login) {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 70px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero-card {
+        width: 100%;
+        max-width: 380px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Mariam's Library</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#library">Library</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#" class="login">Log in</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-text">
+
+        <div class="badge">✨ Your personal digital library</div>
+
+        <h1>
+          Welcome to<br>
+          <span>Mariam's Library</span>
+        </h1>
+
+        <p>
+          A beautiful place to collect, organize, discover and share
+          your favorite documents, ideas and knowledge.
+        </p>
+
+        <div class="buttons">
+          <a href="#library" class="primary">Explore Library →</a>
+          <a href="#features" class="secondary">Discover More</a>
+        </div>
+
+      </div>
+
+      <div class="hero-card">
+
+        <div class="book">📚</div>
+
+        <div>
+          <h3>Your knowledge. Your space.</h3>
+          <p>
+            Keep everything you love in one organized and beautiful library.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <strong>∞</strong>
+        <span>Your Ideas</span>
+      </div>
+
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>Access</span>
+      </div>
+
+      <div class="stat">
+        <strong>100%</strong>
+        <span>Your Space</span>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+
+      <div class="section-title">
+        <h2>Everything in one place</h2>
+        <p>Build your own little world of knowledge.</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">📖</div>
+          <h3>Organize</h3>
+          <p>
+            Create libraries and organize your documents and pages
+            exactly the way you want.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">✨</div>
+          <h3>Discover</h3>
+          <p>
+            Explore interesting content and discover new ideas
+            from your library.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💜</div>
+          <h3>Connect</h3>
+          <p>
+            Like, save, comment and follow your favorite creators
+            and content.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="about">
+    <strong>Mariam's Library</strong>
+    <p>Made with 💜 for knowledge, creativity and ideas.</p>
+  </footer>
+
+</body>
+</html>
