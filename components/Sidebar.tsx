@@ -8,6 +8,7 @@ const navigation = [
   { name: "My Library", href: "/dashboard/library", icon: "📚" },
   { name: "Favorites", href: "/dashboard/favorites", icon: "♡" },
   { name: "Discover", href: "/discover", icon: "✦" },
+  { name: "Customize", href: "/dashboard/settings", icon: "🎨" },
 ];
 
 export default function Sidebar() {
